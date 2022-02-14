@@ -30,6 +30,7 @@ function App() {
 
         <label>
           Password
+          {password.error && <p>Password invalido</p>}
           <input type="password" {...password} />
         </label>
 
