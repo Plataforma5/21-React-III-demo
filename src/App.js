@@ -1,42 +1,28 @@
 import React from "react";
 
-import * as validations from "./validations";
-import { useInput } from "./useInput";
-
 function App() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("SUBMIT");
-  };
-
-  const user = useInput(validations.username, "user");
-  const email = useInput(validations.email, "email");
-  const password = useInput(validations.password, "pass");
-
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>
           User
-          {user.error && <p>User invalido</p>}
-          <input type="text" {...user} />
+          {false && <p>User invalido</p>}
+          <input type="text" name="user" />
         </label>
 
         <label>
           Email
-          {email.error && <p>Email invalido</p>}
-          <input type="text" placeholder="mail@prueba.com" {...email} />
+          {false && <p>Email invalido</p>}
+          <input type="text" name="email" placeholder="mail@prueba.com" />
         </label>
 
         <label>
           Password
-          {password.error && <p>Password invalido</p>}
-          <input type="password" {...password} />
+          {false && <p>Password invalido</p>}
+          <input type="password" name="password" />
         </label>
 
-        <button disabled={email.error || password.error || user.error}>
-          Send
-        </button>
+        <button>Send</button>
       </form>
     </div>
   );
